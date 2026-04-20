@@ -28,6 +28,8 @@ class SavingsAccount extends Account {
 //child class
 class PremiumSavings extends SavingsAccount {
     void bonus() {
+        // double bonus = balance * interestRate /100;
+
         balance += 1000;
         System.out.println("Bonus Added: 1000");
     }
@@ -38,10 +40,13 @@ public class MultilevelExample {
     public static void main(String[] args) {
         PremiumSavings p = new PremiumSavings();
 
-        p.setData(101, 2000);
+        p.setData(101, 4000);
         p.addInterest();
         p.bonus();
         p.display();
         
     }
 }
+
+//a class inherits from a class which itself inherits from another class
+

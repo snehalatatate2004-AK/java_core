@@ -23,27 +23,36 @@ class SavingsAccount extends Account {
     }
 }
 
-//child class 2
+//child class 2 
 class CurrentAccount extends Account {
-    void overdraft() {
-        balance -= 500;
-        System.out.println("Overdraft Used: 500");
+    
+    void overdraftLimit() {
+        if(balance<4000){
+           balance -= 500;
+           System.out.println("Overdraft Used: 500");
+        }else{
+            System.out.println("Overdraft not allowed(Balance is sufficient");
+        }
+        
+        
     }
 }
 
 //Main class
 public class HierarchicalExample {
     public static void main(String[] args) {
+    // two objects should be create for two classes
+    
         SavingsAccount s = new SavingsAccount();
         s.setData(101, 2000);
         s.addInterest();
         s.display();
-
-        System.out.println("------");
+        
 
         CurrentAccount c = new CurrentAccount();
         c.setData(102, 3000);
-        c.overdraft();
+        c.overdraftLimit();
         c.display();
     }
 }
+
